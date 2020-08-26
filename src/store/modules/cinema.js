@@ -37,6 +37,16 @@ const actions = {
                 commit("storeCinemaFailed", err)
             });
     },
+    fetchCinemaById({ commit }, id) {
+        commit('storeCinemaRequest');
+        api.get(`/cinemas/${id}`)
+            .then(res => {
+                commit('storeCinemaSuccess', res.data);
+            })
+            .catch(err => {
+                commit('storeCinemaFailed', err)
+            })
+    }
 }
 
 export default {

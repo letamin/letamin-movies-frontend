@@ -1,7 +1,7 @@
 <template>
   <div class="background">
     <NavbarHome />
-    <div class="container">
+    <div class="container mt-5">
       <Loader v-if="loading" />
       <div class="row container-movie-details" v-else>
         <div class="col-sm-12">
@@ -72,11 +72,10 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
-.container-movie-details {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-buy,
@@ -105,7 +104,7 @@ export default {
 }
 
 .background {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   background: url("../../../assets/background.jpg");
   background-size: cover;
@@ -120,5 +119,40 @@ export default {
 .movie-description {
   font-family: "Lato", sans-serif;
   font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .card-body {
+    min-height: 250px;
+    padding-bottom: 0.5em;
+  }
+  .card-text {
+    margin-bottom: 0.5em;
+  }
+  .btn-buy,
+  .btn-trailer {
+    bottom: 7%;
+  }
+  .movie-description {
+    font-size: 1em;
+  }
+  .card {
+    width: 400px;
+  }
+  img {
+    height: 500px;
+  }
+  .movie-description {
+    margin-top: 30px !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .card {
+    width: 300px;
+  }
+  img {
+    height: 400px;
+  }
 }
 </style>

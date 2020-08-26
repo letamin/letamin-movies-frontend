@@ -25,7 +25,18 @@ const routes = [
   //Cinemas
   {
     path: "/cinemas",
-    component: () => import('../views/Home/Cinemas')
+    redirect: "/cinemas/all",
+    component: () => import('../views/Home/Cinemas'),
+    children: [
+      {
+        path: "/cinemas/all",
+        component: () => import("../views/Home/Cinemas/CinemaAll")
+      },
+      {
+        path: "/cinemas/details/:id",
+        component: () => import("../views/Home/Cinemas/CinemaDetails")
+      }
+    ]
   },
 
   //Adminpage
