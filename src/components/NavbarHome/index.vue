@@ -18,7 +18,9 @@
                 <em>Movies</em>
               </template>
               <b-link @click="closeMenu" to="/status/showing">Showing</b-link>
-              <b-link @click="closeMenu" to="/status/coming-soon">Coming Soon</b-link>
+              <b-link @click="closeMenu" to="/status/coming-soon"
+                >Coming Soon</b-link
+              >
             </b-nav-item-dropdown>
 
             <b-nav-item-dropdown right>
@@ -39,8 +41,13 @@
               <template v-slot:button-content>
                 <em>Members</em>
               </template>
-              <b-dropdown-item>Sign up</b-dropdown-item>
-              <b-dropdown-item>Login</b-dropdown-item>
+              <b-dropdown-item to="/signup">Sign up</b-dropdown-item>
+              <b-dropdown-item v-if="!loggedIn" to="/login"
+                >Login</b-dropdown-item
+              >
+              <b-dropdown-item v-else @click="handleLogout"
+                >Logout</b-dropdown-item
+              >
             </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-collapse>
@@ -54,8 +61,16 @@ export default {
   methods: {
     closeMenu() {
       event.target.parentElement.classList.remove("show");
-    }
-  }
+    },
+    handleLogout() {
+      this.$store.dispatch("logout");
+    },
+  },
+  computed: {
+    loggedIn() {
+      return this.$store.state.login.token;
+    },
+  },
 };
 </script>
 

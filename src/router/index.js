@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import jwtDecode from "jwt-decode";
 
 Vue.use(VueRouter);
 
@@ -39,10 +40,46 @@ const routes = [
     ]
   },
 
-  //Adminpage
+  //Login page
+  {
+    path: '/login',
+    component: () => import('../views/Home/Login'),
+    beforeEnter(to, from, next) {
+      if (localStorage.getItem("token")) {
+        try {
+          const decode = jwtDecode(localStorage.getItem("token"));
+          if (decode.userType === "admin") {
+            next('/admin/dashboard');
+          } else if (decode.userType === "client") {
+            next('/');
+          }
+        } catch {
+          localStorage.removeItem("token");
+          next("/login");
+        }
+      } else {
+        next();
+      }
+    },
+  },
+
+  //Signup page
+  {
+    path: '/signup',
+    component: () => import('../views/Home/SignUp')
+  },
+
+  //Admin page
   {
     path: '/admin',
-    component: () => import('../views/Admin')
+    component: () => import('../views/Admin'),
+    redirect: '/admin/dashboard',
+    children: [
+      {
+        path: '/admin/dashboard',
+        component: () => import('../views/Admin/AdminDashboard')
+      }
+    ]
   }
 ];
 

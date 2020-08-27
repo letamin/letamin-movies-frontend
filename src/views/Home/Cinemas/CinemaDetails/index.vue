@@ -15,7 +15,7 @@
           </div>
         </div>
       </div>
-      <div class="hr mt-5"></div>
+
       <div class="mt-5 cinema-movie-container" v-for="(movie, index) in movieArray" :key="index">
         <div class="row">
           <div class="col-lg-3 col-sm-5 movie-poster">

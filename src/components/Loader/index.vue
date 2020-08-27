@@ -4,7 +4,6 @@
       style="width: 3rem; height: 3rem;"
       label="Large Spinner"
       type="grow"
-      class="custom-spinner"
     ></b-spinner>
   </div>
 </template>
