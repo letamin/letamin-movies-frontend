@@ -66,7 +66,17 @@ const routes = [
   //Signup page
   {
     path: '/signup',
-    component: () => import('../views/Home/SignUp')
+    component: () => import('../views/Home/SignUp'),
+    children: [
+      {
+        path: "/signup",
+        component: () => import('../views/Home/SignUp/SignUpRequest')
+      },
+      {
+        path: "/signup/done",
+        component: () => import('../views/Home/SignUp/SignUpDone')
+      }
+    ]
   },
 
   //Admin page

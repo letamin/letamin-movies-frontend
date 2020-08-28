@@ -33,9 +33,7 @@ const actions = {
         api.post('/users', user)
             .then(res => {
                 commit('storeSignUpSuccess', res.data);
-                setTimeout(() => {
-                    router.replace('/');
-                }, 2000);
+                router.replace('/signup/done');
             })
             .catch(err => {
                 err.response.data

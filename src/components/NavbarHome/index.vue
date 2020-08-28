@@ -17,10 +17,8 @@
               <template v-slot:button-content>
                 <em>Movies</em>
               </template>
-              <b-link @click="closeMenu" to="/status/showing">Showing</b-link>
-              <b-link @click="closeMenu" to="/status/coming-soon"
-                >Coming Soon</b-link
-              >
+              <b-link @click="closeMenu" to="/status/showing" class="text-center">Showing</b-link>
+              <b-link @click="closeMenu" to="/status/coming-soon" class="text-center">Coming Soon</b-link>
             </b-nav-item-dropdown>
 
             <b-nav-item-dropdown right>
@@ -42,12 +40,16 @@
                 <em>Members</em>
               </template>
               <b-dropdown-item to="/signup">Sign up</b-dropdown-item>
-              <b-dropdown-item v-if="!loggedIn" to="/login"
-                >Login</b-dropdown-item
-              >
-              <b-dropdown-item v-else @click="handleLogout"
-                >Logout</b-dropdown-item
-              >
+              <b-dropdown-item v-if="!loggedIn" to="/login">Login</b-dropdown-item>
+              <b-dropdown-item v-else @click="handleLogout">Logout</b-dropdown-item>
+            </b-nav-item-dropdown>
+
+            <b-nav-item-dropdown right>
+              <template v-slot:button-content>
+                <em>About us</em>
+              </template>
+              <b-dropdown-item>About us</b-dropdown-item>
+              <b-dropdown-item>Contact us</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-collapse>
@@ -64,13 +66,13 @@ export default {
     },
     handleLogout() {
       this.$store.dispatch("logout");
-    },
+    }
   },
   computed: {
     loggedIn() {
       return this.$store.state.login.token;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -110,9 +112,9 @@ ul {
 }
 
 li {
-  text-align: center;
   font-size: 16px;
   letter-spacing: 1.5px;
+  text-align: center;
 }
 
 a {
@@ -122,7 +124,6 @@ a {
   clear: both;
   font-weight: 400;
   color: #212529;
-  text-align: inherit;
   white-space: nowrap;
   background-color: transparent;
   border: 0;
