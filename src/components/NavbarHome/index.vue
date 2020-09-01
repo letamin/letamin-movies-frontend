@@ -37,19 +37,19 @@
 
             <b-nav-item-dropdown right>
               <template v-slot:button-content>
+                <em>About us</em>
+              </template>
+              <b-dropdown-item>About us</b-dropdown-item>
+              <b-dropdown-item>Contact us</b-dropdown-item>
+            </b-nav-item-dropdown>
+
+            <b-nav-item-dropdown right>
+              <template v-slot:button-content>
                 <em>Members</em>
               </template>
               <b-dropdown-item to="/signup">Sign up</b-dropdown-item>
               <b-dropdown-item v-if="!loggedIn" to="/login">Login</b-dropdown-item>
               <b-dropdown-item v-else @click="handleLogout">Logout</b-dropdown-item>
-            </b-nav-item-dropdown>
-
-            <b-nav-item-dropdown right>
-              <template v-slot:button-content>
-                <em>About us</em>
-              </template>
-              <b-dropdown-item>About us</b-dropdown-item>
-              <b-dropdown-item>Contact us</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-collapse>

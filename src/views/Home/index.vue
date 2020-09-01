@@ -3,6 +3,7 @@
     <Carousel :listPosters="listPosters" />
     <NavbarHome />
     <Movies :listMovies="listMovies" />
+    <Footer />
     <router-view />
   </div>
 </template>
@@ -11,12 +12,14 @@
 import Carousel from "../../components/Carousel";
 import NavbarHome from "../../components/NavbarHome";
 import Movies from "../../components/Movies";
+import Footer from "../../components/Footer";
 
 export default {
   components: {
     Carousel,
     NavbarHome,
-    Movies
+    Movies,
+    Footer
   },
   data() {
     return {
