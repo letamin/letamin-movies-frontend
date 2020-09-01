@@ -41,8 +41,9 @@ a {
   padding: 20px;
   min-height: 100px;
   border-radius: 5px;
-  background: white;
+  background: rgba(1, 1, 1, 0.5);
   word-wrap: break-word;
+  color: white;
 }
 
 @media (max-width: 575px) {

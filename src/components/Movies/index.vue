@@ -18,7 +18,11 @@
             :to="`/details/${movie._id}`"
             :class="{'btn-details-only': movie.status==`coming-soon` }"
           >Details</b-link>
-          <b-link class="btn btn-buy" v-if="movie.status==`showing`">Buy Ticket</b-link>
+          <b-link
+            class="btn btn-buy"
+            v-if="movie.status==`showing`"
+            :to="`/cinemas/movie/${movie._id}`"
+          >Buy Ticket</b-link>
         </b-card>
       </div>
     </div>

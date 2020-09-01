@@ -9,9 +9,7 @@
       <div v-else class="container">
         <div class="row">
           <div class="col-sm-6 mx-auto">
-            <div class="alert alert-danger" v-if="err">
-              {{ err.response.data.message }}
-            </div>
+            <div class="alert alert-danger" v-if="err">{{ err.response.data.message }}</div>
             <div class="form-container">
               <h3 class="text-center mb-3 form-title text-light">LOGIN</h3>
               <form @submit.prevent="handleLogin">
@@ -35,10 +33,12 @@
                     id="password"
                   />
                 </div>
-                <button type="submit" class="btn w-100 mt-3 form-btn-login">
-                  Login
-                </button>
+                <button type="submit" class="btn w-100 mt-3 form-btn-login">Login</button>
               </form>
+              <b-link
+                class="text-light text-signup mt-2"
+                to="/signup"
+              >Do not have an account yet? Signup now!</b-link>
             </div>
           </div>
         </div>
@@ -54,12 +54,12 @@ import Loader from "../../../components/Loader";
 export default {
   components: {
     Loader,
-    NavbarHome,
+    NavbarHome
   },
   data() {
     return {
       email: "",
-      password: "",
+      password: ""
     };
   },
   computed: {
@@ -68,17 +68,17 @@ export default {
     },
     err() {
       return this.$store.state.login.err;
-    },
+    }
   },
   methods: {
     handleLogin() {
       const formData = {
         email: this.email,
-        password: this.password,
+        password: this.password
       };
       this.$store.dispatch("fetchUserLogin", formData);
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -94,7 +94,7 @@ export default {
 
 .form-container {
   border-radius: 15px;
-  padding: 30px;
+  padding: 30px 30px 15px 30px;
   background: rgba(0, 0, 0, 0.4);
 }
 
@@ -120,5 +120,11 @@ export default {
 .form-title {
   font-weight: bold;
   font-size: 2em;
+}
+
+.text-signup {
+  font-size: 14px;
+  text-align: right;
+  display: block;
 }
 </style>

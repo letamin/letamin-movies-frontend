@@ -19,20 +19,11 @@
       <div class="mt-5 cinema-movie-container" v-for="(movie, index) in movieArray" :key="index">
         <div class="row">
           <div class="col-lg-3 col-sm-5 movie-poster">
-            <img :src="movie.poster" alt />
+            <img :src="movie.poster" alt="movie poster" />
           </div>
           <div class="col-lg-6 col-sm-7 movie-date-container">
             <h3>{{movie.name}} ({{movie.rated}})</h3>
-            <div class="movie-details mt-3">
-              <div v-for="(date, index) in movie.dates" :key="index">
-                <div class="movie-date">
-                  <span class="movie-weekdate">{{date.date.slice(0,3)}}</span>
-                  <em>{{date.date.slice(4,7)}}</em>
-                  <strong>{{date.date.slice(8,10)}}</strong>
-                  <span class="movie-time">{{date.date.slice(15,24)}}</span>
-                </div>
-              </div>
-            </div>
+            <TimeSpan :dates="movie.dates" :movie="movie" :cinema="cinema" />
           </div>
         </div>
         <div class="hr mt-5"></div>
@@ -43,10 +34,12 @@
 
 <script>
 import Loader from "../../../../components/Loader";
+import TimeSpan from "../../../../components/TimeSpan";
 
 export default {
   components: {
-    Loader
+    Loader,
+    TimeSpan
   },
   data() {
     return {
@@ -65,6 +58,11 @@ export default {
     },
     movie() {
       return this.$store.state.movies.data;
+    }
+  },
+  methods: {
+    test(e) {
+      console.log(e);
     }
   },
   watch: {
@@ -126,54 +124,6 @@ img {
   margin: 0 auto;
 }
 
-.movie-date {
-  position: relative;
-  color: black;
-  border: 2px solid #222;
-  border-radius: 10px;
-  background: #fff;
-  width: 110px;
-  height: 50px;
-  cursor: pointer;
-}
-
-.movie-date:hover {
-  opacity: 0.8;
-}
-
-.movie-weekdate,
-em,
-strong {
-  position: absolute;
-  left: 42px;
-  font-size: 14px;
-}
-
-em {
-  font-style: normal;
-  left: 75px;
-}
-
-strong {
-  font-size: 32px;
-  font-weight: normal;
-  left: 5px;
-  line-height: 32px;
-  top: 6px;
-}
-
-.movie-time {
-  top: 20px;
-  left: 42px;
-  position: absolute;
-}
-
-.movie-details {
-  display: grid;
-  grid-template-columns: repeat(4, 120px);
-  grid-row-gap: 10px;
-}
-
 @media (max-width: 1200px) {
   .cinema-details-container {
     left: 16%;
@@ -186,16 +136,7 @@ strong {
   }
 }
 
-@media (max-width: 970px) {
-  .movie-details {
-    grid-template-columns: repeat(3, 120px);
-  }
-}
-
 @media (max-width: 768px) {
-  .movie-details {
-    grid-template-columns: repeat(2, 120px);
-  }
   .cinema-details-text {
     font-size: 0.9rem;
   }

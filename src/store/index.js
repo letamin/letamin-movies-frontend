@@ -6,6 +6,7 @@ import movies from "./modules/movie";
 import cinemas from "./modules/cinema";
 import login from "./modules/login";
 import signUp from "./modules/signUp";
+import ticket from "./modules/ticket";
 
 Vue.use(Vuex);
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
     movies,
     cinemas,
     login,
-    signUp
+    signUp,
+    ticket
   }
 });

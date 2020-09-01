@@ -37,6 +37,7 @@ const actions = {
                 commit("storeCinemaFailed", err)
             });
     },
+
     fetchCinemaById({ commit }, id) {
         commit('storeCinemaRequest');
         api.get(`/cinemas/${id}`)
@@ -45,6 +46,17 @@ const actions = {
             })
             .catch(err => {
                 commit('storeCinemaFailed', err)
+            })
+    },
+
+    fetchCinemasByMovie({ commit }, id) {
+        commit('storeCinemaRequest');
+        api.get(`/cinemas/movie/${id}`)
+            .then(res => {
+                commit('storeCinemaSuccess', res.data);
+            })
+            .catch(err => {
+                commit('storeCinemaFailed', err);
             })
     }
 }

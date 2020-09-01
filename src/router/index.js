@@ -36,6 +36,10 @@ const routes = [
       {
         path: "/cinemas/details/:id",
         component: () => import("../views/Home/Cinemas/CinemaDetails")
+      },
+      {
+        path: "/cinemas/movie/:id",
+        component: () => import('../views/Home/Cinemas/CinemaByMovie')
       }
     ]
   },
@@ -75,6 +79,21 @@ const routes = [
       {
         path: "/signup/done",
         component: () => import('../views/Home/SignUp/SignUpDone')
+      }
+    ]
+  },
+
+  {
+    path: '/ticket/:id/:time/:cinema',
+    component: () => import('../views/Home/Ticket'),
+    children: [
+      {
+        path: "/ticket/:id/:time/:cinema",
+        component: () => import('../views/Home/Ticket/TicketBuy')
+      },
+      {
+        path: "/ticket/confirm",
+        component: () => import('../views/Home/Ticket/TicketConfirm')
       }
     ]
   },

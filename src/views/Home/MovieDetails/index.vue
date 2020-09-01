@@ -34,7 +34,11 @@
                     target="_blank"
                     :class="{'btn-trailer-only' : movie.status==`coming-soon`}"
                   >Trailer</a>
-                  <b-link class="btn btn-buy" v-if="movie.status==`showing`">Buy Ticket</b-link>
+                  <b-link
+                    class="btn btn-buy"
+                    v-if="movie.status==`showing`"
+                    :to="`/cinemas/movie/${movie._id}`"
+                  >Buy Ticket</b-link>
                 </b-card-body>
               </b-col>
             </b-row>
