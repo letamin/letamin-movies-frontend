@@ -83,6 +83,7 @@ const routes = [
     ]
   },
 
+  //Ticket pages
   {
     path: '/ticket/:id/:time/:cinema',
     component: () => import('../views/Home/Ticket'),
@@ -96,6 +97,12 @@ const routes = [
         component: () => import('../views/Home/Ticket/TicketConfirm')
       }
     ]
+  },
+
+  //About page
+  {
+    path: "/about",
+    component: () => import("../views/Home/AboutUs")
   },
 
   //Admin page

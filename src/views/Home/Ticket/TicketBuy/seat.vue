@@ -18,8 +18,7 @@ export default {
   methods: {
     handleSeatSelect() {
       this.statusSeat = !this.statusSeat;
-      const code = this.seat.code;
-      this.$emit("eventSeatSelect", code);
+      this.$emit("eventSeatSelect", this.seat.code);
     }
   }
 };

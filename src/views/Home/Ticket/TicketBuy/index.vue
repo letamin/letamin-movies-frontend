@@ -2,6 +2,28 @@
   <div class="container text-center mt-4">
     <Loader v-if="loading" />
 
+    <b-modal id="modal-ticketConfirm" @ok="onModalOk">
+      <template v-slot:modal-title>
+        <div v-if="ticket && ticket.seatCodes.length != 0 && movie">
+          <template>Please confirm your ticket information:</template>
+        </div>
+        <template v-else>Error</template>
+      </template>
+      <div v-if="ticket && ticket.seatCodes.length != 0 && movie">
+        <div class="font-weight-normal">
+          <br />
+          <span class="font-weight-bold">Movie:</span>
+          {{movie.name}} -
+          <span class="font-weight-bold">Time:</span>
+          {{ticket.date.slice(0, 24 )}}
+          <br />
+          <span class="font-weight-bold">Seat(s):</span>
+          {{ticket.seatCodes.join(', ')}}
+        </div>
+      </div>
+      <div v-else>Please choose your seat</div>
+    </b-modal>
+
     <div class="mt-4" v-if="movie">
       <div class="row">
         <div class="col-sm-4 text-center">
@@ -10,7 +32,7 @@
             <img :src="movie.poster" alt="movie poster" />
             <h4 class="movie-time mt-2">{{date.slice(0,24)}}</h4>
           </div>
-          <button class="btn btn-success mt-2 btn-buy" @click="ticketConfirm">Buy Ticket</button>
+          <button class="btn btn-success mt-2 btn-buy" v-b-modal="`modal-ticketConfirm`">Buy Ticket</button>
         </div>
 
         <div class="col-sm-8">
@@ -65,8 +87,22 @@ export default {
     }
   },
   methods: {
+    onModalOk() {
+      if (this.ticket) {
+        this.$store.dispatch("fetchTicket", this.ticket);
+      }
+    },
     handleEventSeatSelect(seat) {
-      this.seatCodes.push(seat);
+      if (!this.seatCodes.includes(seat)) {
+        this.seatCodes.push(seat);
+      } else if (this.seatCodes.includes(seat)) {
+        for (let i = 0; i < this.seatCodes.length; i++) {
+          if (this.seatCodes[i] == seat) {
+            this.seatCodes.splice(i, 1);
+          }
+        }
+      }
+
       const ticketObj = {
         movieId: this.$route.params.id,
         seatCodes: this.seatCodes,
@@ -75,47 +111,6 @@ export default {
       };
 
       this.ticket = ticketObj;
-    },
-    ticketConfirm() {
-      if (this.ticket) {
-        this.$bvModal
-          .msgBoxConfirm(
-            `Please confirm your ticket information: 
-          Movie: ${this.movie.name} - Time: ${this.ticket.date.slice(
-              0,
-              24
-            )} - Seat(s): ${this.ticket.seatCodes}`,
-            {
-              title: "Ticket Confirmation",
-              size: "md",
-              buttonSize: "sm",
-              okVariant: "success",
-              okTitle: "Ok",
-              cancelTitle: "Cancel",
-              footerClass: "p-2",
-              hideHeaderClose: false,
-              centered: true
-            }
-          )
-          .then(() => {
-            this.$store.dispatch("fetchTicket", this.ticket);
-          })
-          .catch(err => {
-            console.log(err);
-          });
-      } else {
-        this.$bvModal.msgBoxConfirm(`Please choose your seat`, {
-          title: "Ticket Confirmation",
-          size: "sm",
-          buttonSize: "sm",
-          okVariant: "success",
-          okTitle: "Ok",
-          cancelTitle: "Cancel",
-          footerClass: "p-2",
-          hideHeaderClose: false,
-          centered: true
-        });
-      }
     }
   },
   watch: {
@@ -132,6 +127,11 @@ export default {
 </script>
 
 <style scoped>
+.modal-body {
+  display: none;
+  padding: 0;
+}
+
 img {
   max-width: 100%;
 }
@@ -159,6 +159,7 @@ img {
   padding: 10px;
   font-weight: bold;
   background: rgba(1, 1, 1, 0.6);
+  border-radius: 20% 20% 0 0;
 }
 
 .btn-buy {
@@ -167,6 +168,8 @@ img {
 
 .text-exit {
   align-self: flex-start;
+  border-right: 2px solid black;
+  padding: 5px;
 }
 
 .exit-arrow {

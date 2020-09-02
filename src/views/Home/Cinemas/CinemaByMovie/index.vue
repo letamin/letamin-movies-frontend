@@ -8,14 +8,17 @@
           <img :src="movie.poster" alt="movie poster" />
         </div>
       </div>
-      <div class="col-sm-6 d-flex justify-content-center align-items-center">
-        <template v-for="cinema in cinemas">
-          <b-link
-            class="btn-cinema m-2"
-            :key="cinema._id"
-            :to="`/cinemas/details/${cinema._id}`"
-          >{{cinema.name}}</b-link>
-        </template>
+      <div class="col-sm-6">
+        <h3 class="text-light">Available at:</h3>
+        <div class="d-flex justify-content-center align-items-center">
+          <template v-for="cinema in cinemas">
+            <b-link
+              class="btn-cinema m-2"
+              :key="cinema._id"
+              :to="`/cinemas/details/${cinema._id}`"
+            >{{cinema.name}}</b-link>
+          </template>
+        </div>
       </div>
     </div>
   </div>

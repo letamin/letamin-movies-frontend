@@ -1,17 +1,13 @@
 <template>
   <footer class="footer-container mt-4">
     <div class="container">
-      <div class=" row">
+      <div class="row">
         <div class="col-md-4 col-lg-4">
           <b-link href="/" class="footer-brand">
             Movies
             <b-icon icon="film" aria-hidden="true"></b-icon>
           </b-link>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-            quibusdam nam totam,si ex hic! Nobis fugit magni sapiente nesciunt
-            repellendus neque autem fugiat.
-          </p>
+          <p>Letamin Movies is the largest multiplex cinema chain in South Korea and also has branches in China, Indonesia, Myanmar, Turkey, Vietnam and United State!</p>
         </div>
         <div class="col-md-4 col-lg-4 offset-lg-1 footer-contact">
           <h3 class="footer-header">Contact</h3>
@@ -29,28 +25,22 @@
           </div>
         </div>
         <div class="col-md-4 col-lg-3 footer-follow">
-          <h3 class="footer-header ">Follow us</h3>
-          <div class="d-flex ">
+          <h3 class="footer-header">Follow us</h3>
+          <div class="d-flex">
             <div class="footer-icon">
-              <a href="https://www.facebook.com" target="_blank"
-                ><font-awesome-icon
-                  :icon="{ prefix: 'fab', iconName: 'facebook' }"
-                  size="2x"
-              /></a>
+              <a href="https://www.facebook.com" target="_blank">
+                <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook' }" size="2x" />
+              </a>
             </div>
             <div class="footer-icon">
-              <a href="https://twitter.com" target="_blank"
-                ><font-awesome-icon
-                  :icon="{ prefix: 'fab', iconName: 'twitter' }"
-                  size="2x"
-              /></a>
+              <a href="https://twitter.com" target="_blank">
+                <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'twitter' }" size="2x" />
+              </a>
             </div>
             <div class="footer-icon">
-              <a href="https://www.instagram.com" target="_blank"
-                ><font-awesome-icon
-                  :icon="{ prefix: 'fab', iconName: 'instagram' }"
-                  size="2x"
-              /></a>
+              <a href="https://www.instagram.com" target="_blank">
+                <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'instagram' }" size="2x" />
+              </a>
             </div>
           </div>
         </div>
