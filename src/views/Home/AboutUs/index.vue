@@ -30,7 +30,7 @@
               <b-icon icon="check2" aria-hidden="true" class="icon"></b-icon>Basmodi
             </li>
           </ul>
-          <button class="btn-contact">Contact Us</button>
+          <a class="btn-contact" href="/contact">Contact Us</a>
         </div>
       </div>
       <h3 class="about-title mt-5">Gallery</h3>

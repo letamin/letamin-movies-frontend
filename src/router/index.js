@@ -105,6 +105,22 @@ const routes = [
     component: () => import("../views/Home/AboutUs")
   },
 
+  //Contact page
+  {
+    path: "/contact",
+    component: () => import("../views/Home/ContactUs"),
+    children: [
+      {
+        path: "/contact",
+        component: () => import('../views/Home/ContactUs/ContactRequest')
+      },
+      {
+        path: '/contact/done',
+        component: () => import('../views/Home/ContactUs/ContactDone')
+      }
+    ]
+  },
+
   //Admin page
   {
     path: '/admin',

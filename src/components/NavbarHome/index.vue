@@ -40,7 +40,7 @@
                 <em>About us</em>
               </template>
               <b-dropdown-item to="/about">About us</b-dropdown-item>
-              <b-dropdown-item>Contact us</b-dropdown-item>
+              <b-dropdown-item to="/contact">Contact us</b-dropdown-item>
             </b-nav-item-dropdown>
 
             <b-nav-item-dropdown right>

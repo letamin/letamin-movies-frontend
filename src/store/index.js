@@ -7,6 +7,7 @@ import cinemas from "./modules/cinema";
 import login from "./modules/login";
 import signUp from "./modules/signUp";
 import ticket from "./modules/ticket";
+import contact from "./modules/contact";
 
 Vue.use(Vuex);
 
@@ -17,6 +18,7 @@ export default new Vuex.Store({
     cinemas,
     login,
     signUp,
-    ticket
+    ticket,
+    contact
   }
 });
