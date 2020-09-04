@@ -1,9 +1,10 @@
 <template>
-  <div class="">Dashboard</div>
+  <div class>Promotions</div>
 </template>
 
 <script>
 export default {};
 </script>
 
-<style></style>
+<style>
+</style>

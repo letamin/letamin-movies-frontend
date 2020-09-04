@@ -138,17 +138,56 @@ const routes = [
     ]
   },
 
+  //Redirect to admin dashboard
+  {
+    path: "/admin", redirect: "/admin/dashboard"
+  },
+
   //Admin page
   {
-    path: '/admin',
+    path: '/admin/dashboard',
     component: () => import('../views/Admin'),
-    redirect: '/admin/dashboard',
+    beforeEnter(to, from, next) {
+      if (localStorage.getItem("token")) {
+        try {
+          const decode = jwtDecode(localStorage.getItem("token"));
+          if (decode.userType === "admin") {
+            next();
+          } else if (decode.userType === "client") {
+            next('/');
+          }
+        } catch {
+          localStorage.removeItem("token");
+          next("/login");
+        }
+      } else {
+        next();
+      }
+    },
     children: [
       {
-        path: '/admin/dashboard',
-        component: () => import('../views/Admin/AdminDashboard')
+        path: '/admin/movies',
+        component: () => import('../views/Admin/Movies'),
+      },
+      {
+        path: '/admin/cinemas',
+        component: () => import('../views/Admin/Cinemas')
+      },
+      {
+        path: '/admin/promotions',
+        component: () => import('../views/Admin/Promotions')
+      },
+      {
+        path: '/admin/contacts',
+        component: () => import('../views/Admin/Contacts')
       }
     ]
+  },
+
+  //Edit Movies
+  {
+    path: "/admin/movies/edit/:id",
+    component: () => import('../views/Admin/Movies/EditMovie')
   }
 ];
 

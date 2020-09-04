@@ -1,4 +1,5 @@
 import { api } from "@/api/index.js";
+import router from "../../router";
 
 const state = {
     loading: false,
@@ -27,6 +28,17 @@ const mutations = {
 }
 
 const actions = {
+    fetchAllMovies({ commit }) {
+        commit("storeMovieRequest");
+        api.get(`/movies`)
+            .then((res) => {
+                commit("storeMovieSuccess", res.data);
+            })
+            .catch(err => {
+                commit("storeMovieFailed", err)
+            });
+    },
+
     fetchListMoviesByStatus({ commit }, status) {
         commit("storeMovieRequest");
         api.get(`/movies/status/${status}`)
@@ -45,7 +57,19 @@ const actions = {
                 commit("storeMovieSuccess", res.data);
             })
             .catch(err => {
-                commit("storeMovieFailed", err)
+                commit("storeMovieFailed", err);
+            });
+    },
+
+    fetchEditMovie({ commit }, movie) {
+        commit("storeMovieRequest");
+        api.patch(`/movies/${movie._id}`, movie.movie)
+            .then((res) => {
+                commit("storeMovieSuccess", res.data);
+                router.replace('/admin/movies');
+            })
+            .catch(err => {
+                commit("storeMovieFailed", err);
             });
     },
 }

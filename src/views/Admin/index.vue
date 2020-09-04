@@ -1,11 +1,18 @@
 <template>
   <div class>
+    <NavbarAdmin />
     <router-view />
   </div>
 </template>
 
 <script>
-export default {};
+import NavbarAdmin from "../../components/NavbarAdmin";
+
+export default {
+  components: {
+    NavbarAdmin
+  }
+};
 </script>
 
 <style></style>
