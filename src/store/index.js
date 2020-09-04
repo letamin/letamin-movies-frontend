@@ -8,6 +8,7 @@ import login from "./modules/login";
 import signUp from "./modules/signUp";
 import ticket from "./modules/ticket";
 import contact from "./modules/contact";
+import promotions from "./modules/promotion";
 
 Vue.use(Vuex);
 
@@ -19,6 +20,7 @@ export default new Vuex.Store({
     login,
     signUp,
     ticket,
-    contact
+    contact,
+    promotions
   }
 });

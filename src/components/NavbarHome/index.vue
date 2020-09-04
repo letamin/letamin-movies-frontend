@@ -32,7 +32,7 @@
               <template v-slot:button-content>
                 <em>Promotions</em>
               </template>
-              <b-dropdown-item>All Promotions</b-dropdown-item>
+              <b-dropdown-item to="/promotions">All Promotions</b-dropdown-item>
             </b-nav-item-dropdown>
 
             <b-nav-item-dropdown right>

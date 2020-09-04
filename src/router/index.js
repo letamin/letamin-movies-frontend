@@ -44,6 +44,23 @@ const routes = [
     ]
   },
 
+  //Promotions
+  {
+    path: "/promotions",
+    component: () => import("../views/Home/Promotions"),
+    redirect: "/promotions/all",
+    children: [
+      {
+        path: "/promotions/all",
+        component: () => import("../views/Home/Promotions/PromotionAll")
+      },
+      {
+        path: "/promotions/details/:id",
+        component: () => import("../views/Home/Promotions/PromotionDetails")
+      }
+    ]
+  },
+
   //Login page
   {
     path: '/login',
