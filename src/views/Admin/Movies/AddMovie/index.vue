@@ -9,11 +9,22 @@
           <template>Confirming...</template>
         </div>
       </template>
-      <div class>Are you sure you want to edit this movie?</div>
+      <div class>Are you sure you want to add this movie?</div>
+    </b-modal>
+
+    <b-modal id="modal-dates">
+      <template v-slot:modal-title>
+        <div v-if="movie">
+          <template>Dates:</template>
+        </div>
+      </template>
+      <div v-if="dateArray">
+        <div class v-for="(date, index) in dateArray" :key="index">{{index+1}}. {{date}}</div>
+      </div>
     </b-modal>
 
     <div class="container" v-if="movie">
-      <h3 class="text-center mt-4 title">Editing...</h3>
+      <h3 class="text-center mt-4 title">Adding...</h3>
       <div class="row mt-4">
         <div class="col-lg-10 mx-auto text-center position-relative">
           <form @submit.prevent>
@@ -26,14 +37,20 @@
                 v-model="editMovie.name"
               />
             </div>
-            <div class="form-group">
-              <textarea
+            <div class="form-group d-flex justify-content-between">
+              <input
                 type="text"
-                id="description"
-                lass="form-control"
-                placeholder="Description"
-                v-model="editMovie.description"
+                id="name"
+                class="form-control input-date"
+                placeholder="Date"
+                v-model="date"
               />
+              <div v-b-modal="`modal-dates`" class="btn-date m-1">
+                <b-icon icon="info-square" aria-hidden="true" class="h4"></b-icon>
+              </div>
+              <div @click="addDate" class="btn-date m-1">
+                <b-icon icon="plus-square" aria-hidden="true" class="h4"></b-icon>
+              </div>
             </div>
             <div class="form-group">
               <input
@@ -116,8 +133,17 @@
                 v-model="editMovie.time"
               />
             </div>
+            <div class="form-group">
+              <textarea
+                type="text"
+                id="description"
+                lass="form-control"
+                placeholder="Description"
+                v-model="editMovie.description"
+              />
+            </div>
           </form>
-          <button class="btn btn-success btn-edit" v-b-modal="`modal-ticketConfirm`">Edit</button>
+          <button class="btn btn-success btn-edit" v-b-modal="`modal-ticketConfirm`">Add</button>
         </div>
       </div>
     </div>
@@ -135,6 +161,8 @@ export default {
   },
   data() {
     return {
+      dateArray: [],
+      date: "",
       editMovie: {
         name: "",
         description: "",
@@ -163,10 +191,13 @@ export default {
   },
   methods: {
     onModalOk() {
-      this.$store.dispatch("fetchEditMovie", {
-        _id: this.$route.params.id,
-        movie: this.editMovie
-      });
+      this.editMovie.dates = this.dateArray;
+      this.$store.dispatch("fetchPostMovie", this.editMovie);
+    },
+    addDate() {
+      this.dateArray.push(this.date);
+      this.date = "";
+      console.log(this.dateArray);
     }
   },
   watch: {
@@ -213,6 +244,15 @@ form {
   right: 0;
 }
 
+.input-date {
+  width: 80%;
+}
+
+.btn-date {
+  width: 8%;
+  cursor: pointer;
+}
+
 @media (max-width: 667px) {
   .title {
     font-size: 35px;
@@ -236,6 +276,10 @@ form {
 @media (max-width: 450px) {
   .title {
     font-size: 28px;
+  }
+
+  .btn-date {
+    padding: 5px;
   }
 }
 

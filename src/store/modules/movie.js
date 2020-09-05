@@ -72,6 +72,18 @@ const actions = {
                 commit("storeMovieFailed", err);
             });
     },
+
+    fetchPostMovie({ commit }, movie) {
+        commit("storeMovieRequest");
+        api.post(`/movies`, movie)
+            .then((res) => {
+                commit("storeMovieSuccess", res.data);
+                router.replace('/admin/movies');
+            })
+            .catch(err => {
+                commit("storeMovieFailed", err);
+            });
+    },
 }
 
 export default {

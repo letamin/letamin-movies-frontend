@@ -1,9 +1,15 @@
 <template>
   <div class="container">
     <Loader v-if="loading" />
-    <h1 class="text-center mt-4 title">Movies</h1>
-    <div class="row mt-4" v-if="movies">
-      <div class="col-lg-3 col-md-6" v-for="movie in movies" :key="movie._id">
+    <div class="position-relative">
+      <h1 class="text-center mt-4 title">Movies</h1>
+      <input size="sm" class="mr-sm-2 search-box" placeholder="Search" v-model="searchTerm" />
+      <a href="/admin/movies/add">
+        <button class="btn btn-success btn-add">Add</button>
+      </a>
+    </div>
+    <div class="row mt-4 movies-container" v-if="movies">
+      <div class="col-lg-3 col-md-6" v-for="movie in filteredMovie" :key="movie._id">
         <b-card
           overlay
           :img-src="movie.poster"
@@ -27,6 +33,11 @@ export default {
   components: {
     Loader
   },
+  data() {
+    return {
+      searchTerm: ""
+    };
+  },
   created() {
     this.$store.dispatch("fetchAllMovies");
   },
@@ -36,6 +47,15 @@ export default {
     },
     loading() {
       return this.$store.state.movies.loading;
+    },
+    filteredMovie() {
+      if (this.searchTerm) {
+        const regexp = new RegExp(this.searchTerm, "gi");
+        return this.movies.filter(movie =>
+          (movie.name + movie.genre).match(regexp)
+        );
+      }
+      return this.movies;
     }
   }
 };
@@ -73,6 +93,7 @@ export default {
   position: absolute;
   bottom: 7%;
   width: 80px;
+  display: none;
 }
 
 .btn-edit {
@@ -89,6 +110,28 @@ export default {
   opacity: 0.9;
 }
 
+.card:hover .btn-edit,
+.card:hover .btn-delete {
+  display: block;
+}
+
+.search-box {
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.btn-add {
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
 @media (max-width: 1080px) {
   .title {
     font-size: 51px;
@@ -98,6 +141,25 @@ export default {
 @media (max-width: 800px) {
   .title {
     font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .movies-container {
+    margin-top: 60px !important;
+  }
+
+  .search-box,
+  .btn-add {
+    top: 120%;
+  }
+
+  .search-box {
+    right: 10%;
+  }
+
+  .btn-add {
+    left: 10%;
   }
 }
 
@@ -116,6 +178,14 @@ export default {
 @media (max-width: 450px) {
   .title {
     font-size: 35px;
+  }
+
+  .search-box {
+    right: 5%;
+  }
+
+  .btn-add {
+    left: 5%;
   }
 }
 
