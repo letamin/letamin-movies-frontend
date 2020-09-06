@@ -3,7 +3,7 @@
     <NavbarAdmin />
     <Loader v-if="loading" />
 
-    <b-modal id="modal-ticketConfirm" @ok="onModalOk">
+    <b-modal id="modal-editMovieConfrim" @ok="onModalOk">
       <template v-slot:modal-title>
         <div v-if="movie">
           <template>Confirming...</template>
@@ -117,7 +117,7 @@
               />
             </div>
           </form>
-          <button class="btn btn-success btn-edit" v-b-modal="`modal-ticketConfirm`">Edit</button>
+          <button class="btn btn-success btn-edit" v-b-modal="`modal-editMovieConfrim`">Edit</button>
         </div>
       </div>
     </div>

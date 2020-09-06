@@ -195,9 +195,11 @@ export default {
       this.$store.dispatch("fetchPostMovie", this.editMovie);
     },
     addDate() {
-      this.dateArray.push(this.date);
-      this.date = "";
-      console.log(this.dateArray);
+      if (this.date) {
+        this.dateArray.push(this.date);
+        this.date = "";
+        console.log(this.dateArray);
+      }
     }
   },
   watch: {

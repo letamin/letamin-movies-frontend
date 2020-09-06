@@ -190,9 +190,16 @@ const routes = [
     component: () => import('../views/Admin/Movies/EditMovie')
   },
 
+  //Add Movies
   {
     path: '/admin/movies/add',
     component: () => import('../views/Admin/Movies/AddMovie')
+  },
+
+  //Add Movies
+  {
+    path: '/admin/movies/delete/:id',
+    component: () => import('../views/Admin/Movies/DeleteMovie')
   }
 ];
 

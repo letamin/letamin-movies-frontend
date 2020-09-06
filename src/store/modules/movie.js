@@ -84,6 +84,18 @@ const actions = {
                 commit("storeMovieFailed", err);
             });
     },
+
+    fetchDeleteMovie({ commit }, id) {
+        commit("storeMovieRequest");
+        api.delete(`/movies/${id}`)
+            .then((res) => {
+                commit("storeMovieSuccess", res.data);
+                router.replace('/admin/movies');
+            })
+            .catch(err => {
+                commit("storeMovieFailed", err);
+            });
+    },
 }
 
 export default {

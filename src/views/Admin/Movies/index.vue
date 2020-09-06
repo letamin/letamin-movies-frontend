@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <Loader v-if="loading" />
+
     <div class="position-relative">
       <h1 class="text-center mt-4 title">Movies</h1>
       <input size="sm" class="mr-sm-2 search-box" placeholder="Search" v-model="searchTerm" />
@@ -19,7 +20,7 @@
           class="mb-4 position-relative"
         >
           <b-link class="btn btn-edit" :to="`/admin/movies/edit/${movie._id}`">Edit</b-link>
-          <b-link class="btn btn-delete">Delete</b-link>
+          <b-link class="btn btn-delete" :to="`/admin/movies/delete/${movie._id}`">Delete</b-link>
         </b-card>
       </div>
     </div>
@@ -35,7 +36,8 @@ export default {
   },
   data() {
     return {
-      searchTerm: ""
+      searchTerm: "",
+      movieInfo: null
     };
   },
   created() {
@@ -56,6 +58,14 @@ export default {
         );
       }
       return this.movies;
+    }
+  },
+  methods: {
+    onModalOk() {
+      this.$store.dispatch("fetchDeleteMovie", this.movieInfo._id);
+    },
+    passMovieInfo(movie) {
+      this.movieInfo = movie;
     }
   }
 };

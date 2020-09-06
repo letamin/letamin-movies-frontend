@@ -14,7 +14,7 @@ export default {
   },
   beforeCreate() {
     if (!this.$store.state.login.token) {
-      this.$router.replace("/");
+      this.$router.replace("/login");
     }
   }
 };
