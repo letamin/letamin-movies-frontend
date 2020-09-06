@@ -3,13 +3,13 @@
     <NavbarAdmin />
     <Loader v-if="loading" />
 
-    <b-modal id="modal-ticketConfirm" @ok="onModalOk">
+    <b-modal id="modal-addMovieConfirm" @ok="onModalOk">
       <template v-slot:modal-title>
         <div v-if="movie">
           <template>Confirming...</template>
         </div>
       </template>
-      <div class>Are you sure you want to add this movie?</div>
+      <div>Are you sure you want to add this movie?</div>
     </b-modal>
 
     <b-modal id="modal-dates">
@@ -143,7 +143,7 @@
               />
             </div>
           </form>
-          <button class="btn btn-success btn-edit" v-b-modal="`modal-ticketConfirm`">Add</button>
+          <button class="btn btn-success btn-edit" v-b-modal="`modal-addMovieConfirm`">Add</button>
         </div>
       </div>
     </div>
@@ -198,7 +198,6 @@ export default {
       if (this.date) {
         this.dateArray.push(this.date);
         this.date = "";
-        console.log(this.dateArray);
       }
     }
   },
@@ -253,6 +252,8 @@ form {
 .btn-date {
   width: 8%;
   cursor: pointer;
+  outline: none;
+  border: none;
 }
 
 @media (max-width: 667px) {

@@ -196,11 +196,31 @@ const routes = [
     component: () => import('../views/Admin/Movies/AddMovie')
   },
 
-  //Add Movies
+  //Delete Movies
   {
     path: '/admin/movies/delete/:id',
     component: () => import('../views/Admin/Movies/DeleteMovie')
-  }
+  },
+
+  //Edit Cinema
+  {
+    path: '/admin/cinemas/edit/:id',
+    component: () => import('../views/Admin/Cinemas/EditCinema')
+  },
+
+  //Add Cinema
+  {
+    path: '/admin/cinemas/add',
+    component: () => import('../views/Admin/Cinemas/AddCinema')
+  },
+
+  //Delete Cinema
+  {
+    path: '/admin/cinemas/delete/:id',
+    component: () => import('../views/Admin/Cinemas/DeleteCinema')
+  },
+
+
 ];
 
 const router = new VueRouter({

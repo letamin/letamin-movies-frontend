@@ -38,7 +38,7 @@
             <div class="form-group">
               <input
                 type="text"
-                id="province"
+                id="trailer"
                 class="form-control"
                 placeholder="Trailer"
                 v-model="editMovie.trailer"
@@ -47,7 +47,7 @@
             <div class="form-group">
               <input
                 type="text"
-                id="province"
+                id="poster"
                 class="form-control"
                 placeholder="Poster"
                 v-model="editMovie.poster"
@@ -56,7 +56,7 @@
             <div class="form-group">
               <input
                 type="text"
-                id="province"
+                id="promotion"
                 class="form-control"
                 placeholder="Promotion"
                 v-model="editMovie.promotion"
@@ -65,7 +65,7 @@
             <div class="form-group">
               <input
                 type="text"
-                id="province"
+                id="genre"
                 class="form-control"
                 placeholder="Genre"
                 v-model="editMovie.genre"
@@ -74,7 +74,7 @@
             <div class="form-group">
               <input
                 type="text"
-                id="province"
+                id="status"
                 class="form-control"
                 placeholder="Status"
                 v-model="editMovie.status"
@@ -83,7 +83,7 @@
             <div class="form-group">
               <input
                 type="text"
-                id="province"
+                id="rated"
                 class="form-control"
                 placeholder="Rated"
                 v-model="editMovie.rated"
@@ -92,7 +92,7 @@
             <div class="form-group">
               <input
                 type="number"
-                id="province"
+                id="price"
                 class="form-control"
                 placeholder="Price"
                 v-model="editMovie.price"
@@ -101,7 +101,7 @@
             <div class="form-group">
               <input
                 type="text"
-                id="province"
+                id="language"
                 class="form-control"
                 placeholder="Language"
                 v-model="editMovie.language"
@@ -110,7 +110,7 @@
             <div class="form-group">
               <input
                 type="number"
-                id="province"
+                id="time"
                 class="form-control"
                 placeholder="Time"
                 v-model="editMovie.time"
