@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-4">
+  <div class="container mt-4 pb-4">
     <h3 class="contact-title">Contact Us</h3>
     <h5 class="text-center mb-4 font-italic">Dont be shy, drop us a line!</h5>
     <Loader v-if="loading" />
