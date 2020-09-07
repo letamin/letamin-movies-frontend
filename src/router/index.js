@@ -231,6 +231,24 @@ const routes = [
     path: '/admin/contacts/delete/:id',
     component: () => import('../views/Admin/Contacts/ContactDelete')
   },
+
+  //Add Promotion
+  {
+    path: '/admin/promotions/add',
+    component: () => import('../views/Admin/Promotions/AddPromotion')
+  },
+
+  //Edit Promotion
+  {
+    path: '/admin/promotions/edit/:id',
+    component: () => import('../views/Admin/Promotions/EditPromotion')
+  },
+
+  //Delete Promotion
+  {
+    path: '/admin/promotions/delete/:id',
+    component: () => import('../views/Admin/Promotions/DeletePromotion')
+  },
 ];
 
 const router = new VueRouter({

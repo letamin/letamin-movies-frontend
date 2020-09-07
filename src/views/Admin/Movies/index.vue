@@ -9,6 +9,7 @@
         <button class="btn btn-success btn-add">Add</button>
       </a>
     </div>
+
     <div class="row mt-4 movies-container" v-if="movies">
       <div class="col-lg-3 col-md-6" v-for="movie in filteredMovie" :key="movie._id">
         <b-card

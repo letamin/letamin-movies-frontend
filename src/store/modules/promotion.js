@@ -1,4 +1,5 @@
 import { api } from "../../api";
+import router from "../../router";
 
 const state = {
     loading: false,
@@ -31,10 +32,10 @@ const actions = {
         commit('storePromotionsRequest');
         api.get('/promotions')
             .then(res => {
-                commit('storePromotionsSuccess', res.data)
+                commit('storePromotionsSuccess', res.data);
             })
             .catch(err => {
-                commit('storePromotionsFailed', err)
+                commit('storePromotionsFailed', err);
             })
     },
 
@@ -42,10 +43,46 @@ const actions = {
         commit('storePromotionsRequest');
         api.get(`/promotions/${id}`)
             .then(res => {
-                commit('storePromotionsSuccess', res.data)
+                commit('storePromotionsSuccess', res.data);
             })
             .catch(err => {
-                commit('storePromotionsFailed', err)
+                commit('storePromotionsFailed', err);
+            })
+    },
+
+    fetchEditPromotion({ commit }, promotion) {
+        commit('storePromotionsRequest');
+        api.patch(`/promotions/${promotion._id}`, promotion.promotion)
+            .then(res => {
+                commit('storePromotionsSuccess', res.data);
+                router.replace('/admin/promotions');
+            })
+            .catch(err => {
+                commit('storePromotionsFailed', err);
+            })
+    },
+
+    fetchPostPromotion({ commit }, promotion) {
+        commit('storePromotionsRequest');
+        api.post(`/promotions`, promotion)
+            .then(res => {
+                commit('storePromotionsSuccess', res.data);
+                router.replace('/admin/promotions');
+            })
+            .catch(err => {
+                commit('storePromotionsFailed', err);
+            })
+    },
+
+    fetchDeletePromotion({ commit }, id) {
+        commit('storePromotionsRequest');
+        api.delete(`/promotions/${id}`)
+            .then(res => {
+                commit('storePromotionsSuccess', res.data);
+                router.replace('/admin/promotions');
+            })
+            .catch(err => {
+                commit('storePromotionsFailed', err);
             })
     }
 }

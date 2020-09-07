@@ -3,7 +3,12 @@
     <Loader v-if="loading" />
 
     <div class="mt-4 d-flex justify-content-center">
-      <b-form-input size="sm" class="mr-sm-2 w-25" placeholder="Search" v-model="searchTerm"></b-form-input>
+      <b-form-input
+        size="sm"
+        class="mr-sm-2 w-25 search-box"
+        placeholder="Search"
+        v-model="searchTerm"
+      ></b-form-input>
       <a href="/admin/cinemas/add">
         <button class="btn btn-success btn-add">Add</button>
       </a>
@@ -95,6 +100,14 @@ export default {
 @media (max-width: 800px) {
   .title {
     font-size: 48px;
+  }
+
+  .search-box {
+    width: 50% !important;
+  }
+
+  .btn-add {
+    margin-left: 20px;
   }
 }
 
