@@ -108,10 +108,10 @@ export default {
   },
   computed: {
     loading() {
-      return this.$store.state.contact.loading;
+      return this.$store.state.contacts.loading;
     },
     errors() {
-      return this.$store.state.contact.err;
+      return this.$store.state.contacts.err;
     }
   },
   methods: {

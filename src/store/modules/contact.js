@@ -38,7 +38,41 @@ const actions = {
             .catch(err => {
                 commit('storeContactFailed', err.response.data);
             })
-    }
+    },
+
+    fetchGetAllContacts({ commit }) {
+        commit('storeContactRequest');
+        api.get('/contacts')
+            .then(res => {
+                commit('storeContactSuccess', res.data);
+            })
+            .catch(err => {
+                commit('storeContactFailed', err.response.data);
+            })
+    },
+
+    fetchContactById({ commit }, id) {
+        commit('storeContactRequest');
+        api.get(`/contacts/${id}`)
+            .then(res => {
+                commit('storeContactSuccess', res.data);
+            })
+            .catch(err => {
+                commit('storeContactFailed', err.response.data);
+            })
+    },
+
+    fetchDeleteContact({ commit }, id) {
+        commit('storeContactRequest');
+        api.delete(`/contacts/${id}`)
+            .then(res => {
+                commit('storeContactSuccess', res.data);
+                router.replace('/admin/contacts')
+            })
+            .catch(err => {
+                commit('storeContactFailed', err.response.data);
+            })
+    },
 }
 
 export default {

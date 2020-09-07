@@ -220,7 +220,17 @@ const routes = [
     component: () => import('../views/Admin/Cinemas/DeleteCinema')
   },
 
+  //Details Contact
+  {
+    path: '/admin/contacts/details/:id',
+    component: () => import('../views/Admin/Contacts/ContactDetails')
+  },
 
+  //Delete Contact
+  {
+    path: '/admin/contacts/delete/:id',
+    component: () => import('../views/Admin/Contacts/ContactDelete')
+  },
 ];
 
 const router = new VueRouter({

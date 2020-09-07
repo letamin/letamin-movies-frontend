@@ -26,7 +26,7 @@ export default {
     };
   },
   created() {
-    this.formObj = this.$store.state.contact.data;
+    this.formObj = this.$store.state.contacts.data;
   }
 };
 </script>
