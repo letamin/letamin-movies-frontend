@@ -2,27 +2,31 @@
   <div class="container">
     <Loader v-if="loading" />
     <div class v-if="cinema">
-      <h1 class="mt-3 text-center cinema-details-title">{{cinema.name}}</h1>
+      <h1 class="mt-3 text-center cinema-details-title">{{ cinema.name }}</h1>
       <div class="cinema-background mt-4">
         <div class="cinema-details-container">
           <div class>
             <span class="font-weight-bold cinema-details-text">Address:</span>
-            <span class="cinema-details-text">{{ " " + cinema.address}}</span>
+            <span class="cinema-details-text">{{ " " + cinema.address }}</span>
           </div>
           <div class>
             <span class="font-weight-bold cinema-details-text">Province:</span>
-            <span class="cinema-details-text">{{ " " + cinema.province}}</span>
+            <span class="cinema-details-text">{{ " " + cinema.province }}</span>
           </div>
         </div>
       </div>
 
-      <div class="mt-5 cinema-movie-container" v-for="(movie, index) in movieArray" :key="index">
+      <div
+        class="mt-5 cinema-movie-container"
+        v-for="(movie, index) in movieArray"
+        :key="index"
+      >
         <div class="row">
           <div class="col-lg-3 col-sm-5 movie-poster">
             <img :src="movie.poster" alt="movie poster" />
           </div>
           <div class="col-lg-6 col-sm-7 movie-date-container">
-            <h3>{{movie.name}} ({{movie.rated}})</h3>
+            <h3>{{ movie.name }} ({{ movie.rated }})</h3>
             <TimeSpan :dates="movie.dates" :movie="movie" :cinema="cinema" />
           </div>
         </div>

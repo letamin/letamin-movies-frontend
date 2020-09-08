@@ -25,11 +25,16 @@
           <tbody>
             <tr>
               <td>
-                <span class="font-weight-bold">{{cinema.name}}</span>
+                <span class="font-weight-bold">{{ cinema.name }}</span>
               </td>
-              <td>{{cinema.province}}</td>
+              <td>{{ cinema.province }}</td>
               <td>
-                <button class="btn btn-danger ml-2" v-b-modal="`modal-deleteCinemaConfirm`">Delete</button>
+                <button
+                  class="btn btn-danger ml-2"
+                  v-b-modal="`modal-deleteCinemaConfirm`"
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           </tbody>
@@ -67,5 +72,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

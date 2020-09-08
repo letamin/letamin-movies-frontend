@@ -13,12 +13,12 @@
         <div class="font-weight-normal">
           <br />
           <span class="font-weight-bold">Movie:</span>
-          {{movie.name}} -
+          {{ movie.name }} -
           <span class="font-weight-bold">Time:</span>
-          {{ticket.date.slice(0, 24 )}}
+          {{ ticket.date.slice(0, 24) }}
           <br />
           <span class="font-weight-bold">Seat(s):</span>
-          {{ticket.seatCodes.join(', ')}}
+          {{ ticket.seatCodes.join(", ") }}
         </div>
       </div>
       <div v-else>Please choose your seat</div>
@@ -28,16 +28,23 @@
       <div class="row">
         <div class="col-sm-4 text-center">
           <div class="movie-container">
-            <h3 class="movie-name">{{movie.name}}</h3>
+            <h3 class="movie-name">{{ movie.name }}</h3>
             <img :src="movie.poster" alt="movie poster" />
-            <h4 class="movie-time mt-2">{{date.slice(0,24)}}</h4>
+            <h4 class="movie-time mt-2">{{ date.slice(0, 24) }}</h4>
           </div>
-          <button class="btn btn-success mt-2 btn-buy" v-b-modal="`modal-ticketConfirm`">Buy Ticket</button>
+          <button
+            class="btn btn-success mt-2 btn-buy"
+            v-b-modal="`modal-ticketConfirm`"
+          >
+            Buy Ticket
+          </button>
         </div>
 
         <div class="col-sm-8">
           <div class="screen">SCREEN</div>
-          <div class="d-flex justify-content-center align-items-center position-relative">
+          <div
+            class="d-flex justify-content-center align-items-center position-relative"
+          >
             <div class="seat-container mt-2">
               <template v-for="seat in listSeats" class>
                 <Seat

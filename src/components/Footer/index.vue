@@ -7,7 +7,11 @@
             Movies
             <b-icon icon="film" aria-hidden="true"></b-icon>
           </b-link>
-          <p>Letamin Movies is the largest multiplex cinema chain in South Korea and also has branches in China, Indonesia, Myanmar, Turkey, Vietnam and United State!</p>
+          <p>
+            Letamin Movies is the largest multiplex cinema chain in South Korea
+            and also has branches in China, Indonesia, Myanmar, Turkey, Vietnam
+            and United State!
+          </p>
         </div>
         <div class="col-md-4 col-lg-4 offset-lg-1 footer-contact">
           <h3 class="footer-header">Contact</h3>
@@ -29,17 +33,26 @@
           <div class="d-flex">
             <div class="footer-icon">
               <a href="https://www.facebook.com" target="_blank">
-                <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook' }" size="2x" />
+                <font-awesome-icon
+                  :icon="{ prefix: 'fab', iconName: 'facebook' }"
+                  size="2x"
+                />
               </a>
             </div>
             <div class="footer-icon">
               <a href="https://twitter.com" target="_blank">
-                <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'twitter' }" size="2x" />
+                <font-awesome-icon
+                  :icon="{ prefix: 'fab', iconName: 'twitter' }"
+                  size="2x"
+                />
               </a>
             </div>
             <div class="footer-icon">
               <a href="https://www.instagram.com" target="_blank">
-                <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'instagram' }" size="2x" />
+                <font-awesome-icon
+                  :icon="{ prefix: 'fab', iconName: 'instagram' }"
+                  size="2x"
+                />
               </a>
             </div>
           </div>

@@ -23,7 +23,9 @@
           style="max-width: 15rem;"
           class="mb-4 position-relative"
         >
-          <b-link class="btn btn-delete" v-b-modal="'modal-movieDeleteConfirm'">Delete</b-link>
+          <b-link class="btn btn-delete" v-b-modal="'modal-movieDeleteConfirm'"
+            >Delete</b-link
+          >
         </b-card>
       </div>
     </div>

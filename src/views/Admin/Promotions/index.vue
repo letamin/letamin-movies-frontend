@@ -26,8 +26,13 @@
               style="max-width:15rem;"
             >
               <b-card-text class="card-text">
-                <b-icon icon="calendar3" aria-hidden="true" class="mr-2"></b-icon>
-                {{new Date(promotion.startTime).toDateString().slice(4)}} - {{new Date(promotion.endTime).toDateString().slice(4)}}
+                <b-icon
+                  icon="calendar3"
+                  aria-hidden="true"
+                  class="mr-2"
+                ></b-icon>
+                {{ new Date(promotion.startTime).toDateString().slice(4) }} -
+                {{ new Date(promotion.endTime).toDateString().slice(4) }}
                 <div class="btn-container">
                   <a :href="`/admin/promotions/edit/${promotion._id}`">
                     <button class="btn btn-success btn-edit">Edit</button>

@@ -6,10 +6,10 @@
       :to="`/ticket/${movie._id}/${date.date}/${cinema._id}`"
     >
       <div class="movie-date">
-        <span class="movie-weekdate">{{date.date.slice(0,3)}}</span>
-        <em>{{date.date.slice(4,7)}}</em>
-        <strong>{{date.date.slice(8,10)}}</strong>
-        <span class="movie-time">{{date.date.slice(15,24)}}</span>
+        <span class="movie-weekdate">{{ date.date.slice(0, 3) }}</span>
+        <em>{{ date.date.slice(4, 7) }}</em>
+        <strong>{{ date.date.slice(8, 10) }}</strong>
+        <span class="movie-time">{{ date.date.slice(15, 24) }}</span>
       </div>
     </b-link>
   </div>

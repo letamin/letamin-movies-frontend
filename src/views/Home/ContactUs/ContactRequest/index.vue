@@ -6,7 +6,9 @@
     <div class="row">
       <div class="col-lg-9">
         <div class="alert alert-danger text-center" v-if="errors">
-          <div class v-for="(error, index) in errors" :key="index">{{ error }}</div>
+          <div class v-for="(error, index) in errors" :key="index">
+            {{ error }}
+          </div>
         </div>
         <form @submit.prevent>
           <div class="form-group">
@@ -60,7 +62,12 @@
           </div>
         </form>
         <div class="ml-auto">
-          <button class="btn btn-danger btn-send" @click="handleContactSubmitForm">Send</button>
+          <button
+            class="btn btn-danger btn-send"
+            @click="handleContactSubmitForm"
+          >
+            Send
+          </button>
         </div>
       </div>
       <div class="col-lg-3 contact-information">

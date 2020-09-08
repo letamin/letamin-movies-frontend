@@ -1,6 +1,10 @@
 <template>
   <div class="custom-spinner">
-    <b-spinner style="width: 3rem; height: 3rem;" label="Large Spinner" type="grow"></b-spinner>
+    <b-spinner
+      style="width: 3rem; height: 3rem;"
+      label="Large Spinner"
+      type="grow"
+    ></b-spinner>
   </div>
 </template>
 

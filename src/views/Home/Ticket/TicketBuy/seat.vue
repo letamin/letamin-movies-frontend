@@ -1,10 +1,12 @@
 <template>
   <button
     class="btn seat"
-    :class="{'seatSelect': statusSeat, 'seatBooked': seat.isBooked}"
+    :class="{ seatSelect: statusSeat, seatBooked: seat.isBooked }"
     :disabled="seat.isBooked"
     @click="handleSeatSelect"
-  >{{seat.code}}</button>
+  >
+    {{ seat.code }}
+  </button>
 </template>
 
 <script>

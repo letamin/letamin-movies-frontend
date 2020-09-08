@@ -2,13 +2,14 @@
   <div class="container">
     <div class="row mt-5" v-if="formObj">
       <div class="col-sm-6 mx-auto text-center confirm-container">
-        <h3>Thank you for contacting us {{formObj.name}},</h3>
-        <p
-          class="mt-3"
-        >We have received your message, please wait while we checking it. We will get back to you as soon as possible.</p>
+        <h3>Thank you for contacting us {{ formObj.name }},</h3>
+        <p class="mt-3">
+          We have received your message, please wait while we checking it. We
+          will get back to you as soon as possible.
+        </p>
         <p>
           Do not forget to check your email
-          <span class="font-weight-bold">{{formObj.email}}</span> for update!
+          <span class="font-weight-bold">{{ formObj.email }}</span> for update!
         </p>
         <button class="btn btn-success">
           <a href="/">Home</a>

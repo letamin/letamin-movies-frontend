@@ -3,7 +3,7 @@
     <Loader v-if="loading" />
     <div class="row m-5" v-if="cinemas && movie">
       <div class="text-center col-sm-6">
-        <h3 class="text-light">{{movie.name}}</h3>
+        <h3 class="text-light">{{ movie.name }}</h3>
         <div class>
           <img :src="movie.poster" alt="movie poster" />
         </div>
@@ -16,7 +16,8 @@
               class="btn-cinema m-2"
               :key="cinema._id"
               :to="`/cinemas/details/${cinema._id}`"
-            >{{cinema.name}}</b-link>
+              >{{ cinema.name }}</b-link
+            >
           </template>
         </div>
       </div>

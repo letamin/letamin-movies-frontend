@@ -65,7 +65,12 @@
               />
             </div>
           </form>
-          <button class="btn btn-success btn-edit" v-b-modal="`modal-addPromotionConfirm`">Add</button>
+          <button
+            class="btn btn-success btn-edit"
+            v-b-modal="`modal-addPromotionConfirm`"
+          >
+            Add
+          </button>
         </div>
       </div>
     </div>

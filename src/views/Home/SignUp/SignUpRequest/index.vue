@@ -6,7 +6,9 @@
       <div class="row">
         <div class="col-sm-6 mx-auto">
           <div class="alert alert-danger text-center" v-if="errors">
-            <div class v-for="(error, index) in errors" :key="index">{{ error }}</div>
+            <div class v-for="(error, index) in errors" :key="index">
+              {{ error }}
+            </div>
           </div>
           <div class="form-container">
             <h3 class="text-center mb-3 form-title text-light">Sign Up</h3>
@@ -41,7 +43,9 @@
                   id="name"
                 />
               </div>
-              <button type="submit" class="btn w-100 mt-3 form-btn-login">Sign Up</button>
+              <button type="submit" class="btn w-100 mt-3 form-btn-login">
+                Sign Up
+              </button>
             </form>
           </div>
         </div>

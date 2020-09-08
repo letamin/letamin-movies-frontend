@@ -13,21 +13,27 @@
             A few words about
             <span style="color: #ff3535;">Letamin movies</span>
           </h5>
-          <p
-            class="about-text"
-          >Masagni dolores eoquie int Basmodi temporant, ut laboreas dolore magnam aliquam kuytase uaeraquis autem vel eum iure reprehend.Unicmquam eius, Basmodi temurer sehsMunim.</p>
+          <p class="about-text">
+            Masagni dolores eoquie int Basmodi temporant, ut laboreas dolore
+            magnam aliquam kuytase uaeraquis autem vel eum iure
+            reprehend.Unicmquam eius, Basmodi temurer sehsMunim.
+          </p>
           <ul>
             <li>
-              <b-icon icon="check2" aria-hidden="true" class="icon"></b-icon>Masagni dolores
+              <b-icon icon="check2" aria-hidden="true" class="icon"></b-icon
+              >Masagni dolores
             </li>
             <li>
-              <b-icon icon="check2" aria-hidden="true" class="icon"></b-icon>Dolores
+              <b-icon icon="check2" aria-hidden="true" class="icon"></b-icon
+              >Dolores
             </li>
             <li>
-              <b-icon icon="check2" aria-hidden="true" class="icon"></b-icon>Eoquies
+              <b-icon icon="check2" aria-hidden="true" class="icon"></b-icon
+              >Eoquies
             </li>
             <li>
-              <b-icon icon="check2" aria-hidden="true" class="icon"></b-icon>Basmodi
+              <b-icon icon="check2" aria-hidden="true" class="icon"></b-icon
+              >Basmodi
             </li>
           </ul>
           <a class="btn-contact" href="/contact">Contact Us</a>

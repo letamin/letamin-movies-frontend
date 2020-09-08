@@ -10,13 +10,13 @@ import NavbarHome from "../../../components/NavbarHome";
 
 export default {
   components: {
-    NavbarHome,
+    NavbarHome
   },
   created() {
     if (!this.$store.state.login.token) {
       this.$router.replace("/login");
     }
-  },
+  }
 };
 </script>
 

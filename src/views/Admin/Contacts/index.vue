@@ -16,18 +16,20 @@
           <tbody>
             <tr v-for="contact in contacts" :key="contact._id">
               <td>
-                <span class="font-weight-bold">{{contact.name}}</span>
+                <span class="font-weight-bold">{{ contact.name }}</span>
               </td>
-              <td>{{contact.subject}}</td>
+              <td>{{ contact.subject }}</td>
               <td>
                 <router-link
                   class="btn btn-success"
                   :to="`/admin/contacts/details/${contact._id}`"
-                >Details</router-link>
+                  >Details</router-link
+                >
                 <router-link
                   class="btn btn-danger ml-2 btn-delete"
                   :to="`/admin/contacts/delete/${contact._id}`"
-                >Delete</router-link>
+                  >Delete</router-link
+                >
               </td>
             </tr>
           </tbody>

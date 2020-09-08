@@ -2,7 +2,12 @@
   <div class="container">
     <Loader v-if="loading" />
     <b-nav-form class="mt-4">
-      <b-form-input size="sm" class="mr-sm-2" placeholder="Search" v-model="searchTerm"></b-form-input>
+      <b-form-input
+        size="sm"
+        class="mr-sm-2"
+        placeholder="Search"
+        v-model="searchTerm"
+      ></b-form-input>
     </b-nav-form>
     <div class="table-responsive">
       <table class="table table-hover mt-4">
@@ -16,11 +21,15 @@
         <tbody>
           <tr v-for="cinema in filteredCinema" :key="cinema._id">
             <td>
-              <span class="font-weight-bold">{{cinema.name}}</span>
+              <span class="font-weight-bold">{{ cinema.name }}</span>
             </td>
-            <td>{{cinema.province}}</td>
+            <td>{{ cinema.province }}</td>
             <td>
-              <router-link class="btn btn-success" :to="`/cinemas/details/${cinema._id}`">Details</router-link>
+              <router-link
+                class="btn btn-success"
+                :to="`/cinemas/details/${cinema._id}`"
+                >Details</router-link
+              >
             </td>
           </tr>
         </tbody>

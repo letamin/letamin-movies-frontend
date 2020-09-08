@@ -27,15 +27,20 @@
         <tbody>
           <tr v-for="cinema in filteredCinema" :key="cinema._id">
             <td>
-              <span class="font-weight-bold">{{cinema.name}}</span>
+              <span class="font-weight-bold">{{ cinema.name }}</span>
             </td>
-            <td>{{cinema.province}}</td>
+            <td>{{ cinema.province }}</td>
             <td>
-              <router-link class="btn btn-success" :to="`/admin/cinemas/edit/${cinema._id}`">Edit</router-link>
+              <router-link
+                class="btn btn-success"
+                :to="`/admin/cinemas/edit/${cinema._id}`"
+                >Edit</router-link
+              >
               <router-link
                 class="btn btn-danger ml-2 btn-delete"
                 :to="`/admin/cinemas/delete/${cinema._id}`"
-              >Delete</router-link>
+                >Delete</router-link
+              >
             </td>
           </tr>
         </tbody>

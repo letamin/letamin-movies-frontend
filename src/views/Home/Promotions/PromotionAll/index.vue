@@ -17,7 +17,8 @@
           >
             <b-card-text class="card-text">
               <b-icon icon="calendar3" aria-hidden="true" class="mr-2"></b-icon>
-              {{new Date(promotion.startTime).toDateString().slice(4)}} - {{new Date(promotion.endTime).toDateString().slice(4)}}
+              {{ new Date(promotion.startTime).toDateString().slice(4) }} -
+              {{ new Date(promotion.endTime).toDateString().slice(4) }}
             </b-card-text>
           </b-card>
         </b-link>

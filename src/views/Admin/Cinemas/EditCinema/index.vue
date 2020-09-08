@@ -27,7 +27,7 @@
             v-model="movieArray"
             class="mr-2"
           />
-          <label :for="movie.name">{{movie.name}}</label>
+          <label :for="movie.name">{{ movie.name }}</label>
         </div>
       </form>
     </b-modal>
@@ -74,13 +74,27 @@
               />
             </div>
             <div class="form-group d-flex justify-content-between">
-              <input type="text" id="movie" class="form-control input-movies" placeholder="Movies" />
+              <input
+                type="text"
+                id="movie"
+                class="form-control input-movies"
+                placeholder="Movies"
+              />
               <div class="btn-movies m-1" v-b-modal="`modal-moviesList`">
-                <b-icon icon="plus-square" aria-hidden="true" class="h4"></b-icon>
+                <b-icon
+                  icon="plus-square"
+                  aria-hidden="true"
+                  class="h4"
+                ></b-icon>
               </div>
             </div>
           </form>
-          <button class="btn btn-success btn-edit" v-b-modal="`modal-editCinemaConfirm`">Edit</button>
+          <button
+            class="btn btn-success btn-edit"
+            v-b-modal="`modal-editCinemaConfirm`"
+          >
+            Edit
+          </button>
         </div>
       </div>
     </div>

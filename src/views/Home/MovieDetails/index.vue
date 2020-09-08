@@ -5,45 +5,57 @@
       <Loader v-if="loading" />
       <div class="row container-movie-details" v-else>
         <div class="col-sm-12">
-          <b-card no-body class="overflow-hidden mx-auto" style="max-width: 540px;">
+          <b-card
+            no-body
+            class="overflow-hidden mx-auto"
+            style="max-width: 540px;"
+          >
             <b-row no-gutters>
               <b-col md="6">
-                <b-card-img :src="movie.poster" alt="Image" class="rounded-0"></b-card-img>
+                <b-card-img
+                  :src="movie.poster"
+                  alt="Image"
+                  class="rounded-0"
+                ></b-card-img>
               </b-col>
               <b-col md="6">
                 <b-card-body :title="movie.name">
                   <b-card-text>
                     <span class="font-weight-bold">Genre:</span>
-                    {{movie.genre}}
+                    {{ movie.genre }}
                   </b-card-text>
                   <b-card-text>
                     <span class="font-weight-bold">Language:</span>
-                    {{movie.language}}
+                    {{ movie.language }}
                   </b-card-text>
                   <b-card-text>
                     <span class="font-weight-bold">Time:</span>
-                    {{movie.time}} minutes
+                    {{ movie.time }} minutes
                   </b-card-text>
                   <b-card-text>
                     <span class="font-weight-bold">Rate:</span>
-                    {{movie.rated}}
+                    {{ movie.rated }}
                   </b-card-text>
                   <a
                     class="btn btn-trailer"
                     :href="movie.trailer"
                     target="_blank"
-                    :class="{'btn-trailer-only' : movie.status==`coming-soon`}"
-                  >Trailer</a>
+                    :class="{
+                      'btn-trailer-only': movie.status == `coming-soon`
+                    }"
+                    >Trailer</a
+                  >
                   <b-link
                     class="btn btn-buy"
-                    v-if="movie.status==`showing`"
+                    v-if="movie.status == `showing`"
                     :to="`/cinemas/movie/${movie._id}`"
-                  >Buy Ticket</b-link>
+                    >Buy Ticket</b-link
+                  >
                 </b-card-body>
               </b-col>
             </b-row>
           </b-card>
-          <p class="mt-5 movie-description">{{movie.description}}</p>
+          <p class="mt-5 movie-description">{{ movie.description }}</p>
         </div>
       </div>
     </div>

@@ -2,13 +2,12 @@
   <div class="container">
     <div class="row mt-5">
       <div class="col-sm-6 mx-auto confirm-container text-center" v-if="user">
-        <h3>Welcome {{user.fullName}},</h3>
+        <h3>Welcome {{ user.fullName }},</h3>
         <p class="mt-3">
           Your account has been created, please check your email address:
-          <span
-            class="font-weight-bold"
-          >{{user.email}}</span> for more information.
-          <br />If you have any problem, do not hesitate to contact us.
+          <span class="font-weight-bold">{{ user.email }}</span> for more
+          information. <br />If you have any problem, do not hesitate to contact
+          us.
         </p>
         <button class="btn btn-success">
           <a href="/">Home</a>

@@ -19,7 +19,9 @@
         </div>
       </template>
       <div v-if="dateArray">
-        <div class v-for="(date, index) in dateArray" :key="index">{{index+1}}. {{date}}</div>
+        <div class v-for="(date, index) in dateArray" :key="index">
+          {{ index + 1 }}. {{ date }}
+        </div>
       </div>
     </b-modal>
 
@@ -46,10 +48,18 @@
                 v-model="date"
               />
               <div v-b-modal="`modal-dates`" class="btn-date m-1">
-                <b-icon icon="info-square" aria-hidden="true" class="h4"></b-icon>
+                <b-icon
+                  icon="info-square"
+                  aria-hidden="true"
+                  class="h4"
+                ></b-icon>
               </div>
               <div @click="addDate" class="btn-date m-1">
-                <b-icon icon="plus-square" aria-hidden="true" class="h4"></b-icon>
+                <b-icon
+                  icon="plus-square"
+                  aria-hidden="true"
+                  class="h4"
+                ></b-icon>
               </div>
             </div>
             <div class="form-group">
@@ -143,7 +153,12 @@
               />
             </div>
           </form>
-          <button class="btn btn-success btn-edit" v-b-modal="`modal-addMovieConfirm`">Add</button>
+          <button
+            class="btn btn-success btn-edit"
+            v-b-modal="`modal-addMovieConfirm`"
+          >
+            Add
+          </button>
         </div>
       </div>
     </div>

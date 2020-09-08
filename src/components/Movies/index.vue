@@ -1,10 +1,14 @@
 <template>
   <div class="container position-relative">
-    <h1 class="text-center m-4 title text-light" v-if="status">{{status}}</h1>
+    <h1 class="text-center m-4 title text-light" v-if="status">{{ status }}</h1>
     <h1 class="text-center m-4 title" v-else>Welcome</h1>
     <Loader v-if="loading" />
     <div class="row" v-else>
-      <div class="col-lg-3 col-md-6" v-for="movie in listMovies" :key="movie._id">
+      <div
+        class="col-lg-3 col-md-6"
+        v-for="movie in listMovies"
+        :key="movie._id"
+      >
         <b-card
           overlay
           :img-src="movie.poster"
@@ -16,13 +20,15 @@
           <b-link
             class="btn btn-details"
             :to="`/details/${movie._id}`"
-            :class="{'btn-details-only': movie.status==`coming-soon` }"
-          >Details</b-link>
+            :class="{ 'btn-details-only': movie.status == `coming-soon` }"
+            >Details</b-link
+          >
           <b-link
             class="btn btn-buy"
-            v-if="movie.status==`showing`"
+            v-if="movie.status == `showing`"
             :to="`/cinemas/movie/${movie._id}`"
-          >Buy Ticket</b-link>
+            >Buy Ticket</b-link
+          >
         </b-card>
       </div>
     </div>

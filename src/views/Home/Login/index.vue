@@ -9,7 +9,9 @@
       <div v-else class="container">
         <div class="row">
           <div class="col-sm-6 mx-auto">
-            <div class="alert alert-danger" v-if="err">{{ err.response.data.message }}</div>
+            <div class="alert alert-danger" v-if="err">
+              {{ err.response.data.message }}
+            </div>
             <div class="form-container">
               <h3 class="text-center mb-3 form-title text-light">LOGIN</h3>
               <form @submit.prevent="handleLogin">
@@ -33,12 +35,13 @@
                     id="password"
                   />
                 </div>
-                <button type="submit" class="btn w-100 mt-3 form-btn-login">Login</button>
+                <button type="submit" class="btn w-100 mt-3 form-btn-login">
+                  Login
+                </button>
               </form>
-              <b-link
-                class="text-light text-signup mt-2"
-                to="/signup"
-              >Do not have an account yet? Signup now!</b-link>
+              <b-link class="text-light text-signup mt-2" to="/signup"
+                >Do not have an account yet? Signup now!</b-link
+              >
             </div>
           </div>
         </div>

@@ -1,22 +1,27 @@
 <template>
   <div class="container">
     <div class="row mt-5">
-      <div class="col-sm-6 mx-auto confirm-container text-center" v-if="ticket && cinema && movie">
+      <div
+        class="col-sm-6 mx-auto confirm-container text-center"
+        v-if="ticket && cinema && movie"
+      >
         <h3>Thank you,</h3>
         <p class="mt-3">
           Your ticket has been confirmed, please check your email address.
           <br />
           <span>
             <span class="font-weight-bold">Cinema:</span>
-            {{cinema.name}} -
+            {{ cinema.name }} -
             <span class="font-weight-bold">Movie:</span>
-            {{movie.name}}
+            {{ movie.name }}
           </span>
           <br />
           <span class="font-weight-bold">Date:</span>
-          {{date}} -
+          {{ date }} -
           <span class="font-weight-bold">Seat:</span>
-          <span v-for="seat in ticket.seatCodes" :key="seat._id">{{' ' + seat.code}}</span>
+          <span v-for="seat in ticket.seatCodes" :key="seat._id">{{
+            " " + seat.code
+          }}</span>
         </p>
         <button class="btn btn-success">
           <a href="/">Home</a>

@@ -3,25 +3,28 @@
     <NavbarAdmin />
     <Loader v-if="loading" />
 
-    <div class="contact-container container mt-4 mb-4 position-relative" v-if="contact">
+    <div
+      class="contact-container container mt-4 mb-4 position-relative"
+      v-if="contact"
+    >
       <div class="contact-title-container">
-        <h1 class="contact-title contact-subject">{{contact.subject}}</h1>
+        <h1 class="contact-title contact-subject">{{ contact.subject }}</h1>
       </div>
       <div class="contact-body-container">
         <div class="contact-info-container">
           <div class>
             <span class="font-weight-bold contact-title">From:</span>
-            {{contact.name}}
+            {{ contact.name }}
           </div>
           <div class>
             <span class="font-weight-bold contact-title">Email:</span>
-            {{contact.email}}
+            {{ contact.email }}
           </div>
         </div>
         <p class="mt-3">
           <span class="font-weight-bold contact-title">Message:</span>
           <br />
-          {{contact.message}}
+          {{ contact.message }}
         </p>
       </div>
       <a href="https://mail.google.com" target="_blank">

@@ -117,7 +117,12 @@
               />
             </div>
           </form>
-          <button class="btn btn-success btn-edit" v-b-modal="`modal-editMovieConfrim`">Edit</button>
+          <button
+            class="btn btn-success btn-edit"
+            v-b-modal="`modal-editMovieConfrim`"
+          >
+            Edit
+          </button>
         </div>
       </div>
     </div>
