@@ -249,6 +249,12 @@ const routes = [
   {
     path: "/admin/promotions/delete/:id",
     component: () => import("../views/Admin/Promotions/DeletePromotion")
+  },
+
+  //Page not found
+  {
+    path: "*",
+    component: () => import("../views/PageNotFound")
   }
 ];
 
