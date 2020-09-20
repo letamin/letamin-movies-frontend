@@ -14,9 +14,7 @@
 
     <div class="container position-relative" v-if="promotion">
       <div class="row mt-5">
-        <div
-          class="col-lg-8 mx-auto d-flex justify-content-between promotion-container"
-        >
+        <div class="col-lg-8 mx-auto d-flex justify-content-between promotion-container">
           <div class="col-lg-4 promotion-img">
             <h4 class="font-weight-bold">{{ promotion.name }}</h4>
             <img :src="promotion.image" alt="Promotion" />
@@ -27,18 +25,15 @@
               <b-icon icon="calendar3" aria-hidden="true" class="mr-2"></b-icon>
               <span class="font-weight-bold">From:</span>
               {{ new Date(promotion.startTime).toString().slice(0, 24) }} -
-              <span class="font-weight-bold">To:</span>
+              <span
+                class="font-weight-bold"
+              >To:</span>
               {{ new Date(promotion.endTime).toString().slice(0, 24) }}
             </div>
           </div>
         </div>
       </div>
-      <button
-        class="btn btn-danger btn-delete"
-        v-b-modal="`modal-promotionDeleteConfirm`"
-      >
-        Delete
-      </button>
+      <button class="btn btn-danger btn-delete" v-b-modal="`modal-promotionDeleteConfirm`">Delete</button>
     </div>
   </div>
 </template>
@@ -51,6 +46,11 @@ export default {
   components: {
     NavbarAdmin,
     Loader
+  },
+  beforeCreate() {
+    if (!this.$store.state.login.token) {
+      this.$router.replace("/");
+    }
   },
   created() {
     this.$store.dispatch("fetchPromotionById", this.$route.params.id);

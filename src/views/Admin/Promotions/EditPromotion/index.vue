@@ -65,12 +65,7 @@
               />
             </div>
           </form>
-          <button
-            class="btn btn-success btn-edit"
-            v-b-modal="`modal-editPromotionConfirm`"
-          >
-            Edit
-          </button>
+          <button class="btn btn-success btn-edit" v-b-modal="`modal-editPromotionConfirm`">Edit</button>
         </div>
       </div>
     </div>
@@ -96,6 +91,11 @@ export default {
         endTime: ""
       }
     };
+  },
+  beforeCreate() {
+    if (!this.$store.state.login.token) {
+      this.$router.replace("/");
+    }
   },
   created() {
     this.$store.dispatch("fetchPromotionById", this.$route.params.id);

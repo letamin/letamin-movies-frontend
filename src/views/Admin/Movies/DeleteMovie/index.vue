@@ -23,9 +23,7 @@
           style="max-width: 15rem;"
           class="mb-4 position-relative"
         >
-          <b-link class="btn btn-delete" v-b-modal="'modal-movieDeleteConfirm'"
-            >Delete</b-link
-          >
+          <b-link class="btn btn-delete" v-b-modal="'modal-movieDeleteConfirm'">Delete</b-link>
         </b-card>
       </div>
     </div>
@@ -40,6 +38,11 @@ export default {
   components: {
     Loader,
     NavbarAdmin
+  },
+  beforeCreate() {
+    if (!this.$store.state.login.token) {
+      this.$router.replace("/");
+    }
   },
   created() {
     this.$store.dispatch("fetchMoviesById", this.$route.params.id);

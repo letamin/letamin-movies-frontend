@@ -3,10 +3,7 @@
     <NavbarAdmin />
     <Loader v-if="loading" />
 
-    <div
-      class="contact-container container mt-4 mb-4 position-relative"
-      v-if="contact"
-    >
+    <div class="contact-container container mt-4 mb-4 position-relative" v-if="contact">
       <div class="contact-title-container">
         <h1 class="contact-title contact-subject">{{ contact.subject }}</h1>
       </div>
@@ -42,6 +39,11 @@ export default {
   components: {
     Loader,
     NavbarAdmin
+  },
+  beforeCreate() {
+    if (!this.$store.state.login.token) {
+      this.$router.replace("/");
+    }
   },
   created() {
     this.$store.dispatch("fetchContactById", this.$route.params.id);

@@ -65,12 +65,7 @@
               />
             </div>
           </form>
-          <button
-            class="btn btn-success btn-edit"
-            v-b-modal="`modal-addPromotionConfirm`"
-          >
-            Add
-          </button>
+          <button class="btn btn-success btn-edit" v-b-modal="`modal-addPromotionConfirm`">Add</button>
         </div>
       </div>
     </div>
@@ -96,6 +91,11 @@ export default {
         image: ""
       }
     };
+  },
+  beforeCreate() {
+    if (!this.$store.state.login.token) {
+      this.$router.replace("/");
+    }
   },
   computed: {
     loading() {

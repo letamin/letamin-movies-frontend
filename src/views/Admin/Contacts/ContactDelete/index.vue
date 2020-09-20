@@ -12,10 +12,7 @@
       <div>Are you sure you want to DELETE this contact?</div>
     </b-modal>
 
-    <div
-      class="contact-container container mt-4 mb-4 position-relative"
-      v-if="contact"
-    >
+    <div class="contact-container container mt-4 mb-4 position-relative" v-if="contact">
       <div class="contact-title-container">
         <h1 class="contact-title contact-subject">{{ contact.subject }}</h1>
       </div>
@@ -37,12 +34,7 @@
         </p>
       </div>
 
-      <button
-        class="btn btn-danger btn-delete mt-2"
-        v-b-modal="`modal-deleteContactConfirm`"
-      >
-        Delete
-      </button>
+      <button class="btn btn-danger btn-delete mt-2" v-b-modal="`modal-deleteContactConfirm`">Delete</button>
     </div>
   </div>
 </template>
@@ -55,6 +47,11 @@ export default {
   components: {
     Loader,
     NavbarAdmin
+  },
+  beforeCreate() {
+    if (!this.$store.state.login.token) {
+      this.$router.replace("/");
+    }
   },
   created() {
     this.$store.dispatch("fetchContactById", this.$route.params.id);

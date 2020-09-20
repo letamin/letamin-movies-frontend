@@ -117,12 +117,7 @@
               />
             </div>
           </form>
-          <button
-            class="btn btn-success btn-edit"
-            v-b-modal="`modal-editMovieConfrim`"
-          >
-            Edit
-          </button>
+          <button class="btn btn-success btn-edit" v-b-modal="`modal-editMovieConfrim`">Edit</button>
         </div>
       </div>
     </div>
@@ -154,6 +149,11 @@ export default {
         time: ""
       }
     };
+  },
+  beforeCreate() {
+    if (!this.$store.state.login.token) {
+      this.$router.replace("/");
+    }
   },
   created() {
     this.$store.dispatch("fetchMoviesById", this.$route.params.id);

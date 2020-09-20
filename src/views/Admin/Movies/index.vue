@@ -4,23 +4,14 @@
 
     <div class="position-relative">
       <h1 class="text-center mt-4 title">Movies</h1>
-      <input
-        size="sm"
-        class="mr-sm-2 search-box"
-        placeholder="Search"
-        v-model="searchTerm"
-      />
+      <input size="sm" class="mr-sm-2 search-box" placeholder="Search" v-model="searchTerm" />
       <a href="/admin/movies/add">
         <button class="btn btn-success btn-add">Add</button>
       </a>
     </div>
 
     <div class="row mt-4 movies-container" v-if="movies">
-      <div
-        class="col-lg-3 col-md-6"
-        v-for="movie in filteredMovie"
-        :key="movie._id"
-      >
+      <div class="col-lg-3 col-md-6" v-for="movie in filteredMovie" :key="movie._id">
         <b-card
           overlay
           :img-src="movie.poster"
@@ -29,14 +20,8 @@
           style="max-width: 15rem;"
           class="mb-4 position-relative"
         >
-          <b-link class="btn btn-edit" :to="`/admin/movies/edit/${movie._id}`"
-            >Edit</b-link
-          >
-          <b-link
-            class="btn btn-delete"
-            :to="`/admin/movies/delete/${movie._id}`"
-            >Delete</b-link
-          >
+          <b-link class="btn btn-edit" :to="`/admin/movies/edit/${movie._id}`">Edit</b-link>
+          <b-link class="btn btn-delete" :to="`/admin/movies/delete/${movie._id}`">Delete</b-link>
         </b-card>
       </div>
     </div>

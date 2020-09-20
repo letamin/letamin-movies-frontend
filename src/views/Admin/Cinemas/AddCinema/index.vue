@@ -74,27 +74,13 @@
               />
             </div>
             <div class="form-group d-flex justify-content-between">
-              <input
-                type="text"
-                id="movie"
-                class="form-control input-movies"
-                placeholder="Movies"
-              />
+              <input type="text" id="movie" class="form-control input-movies" placeholder="Movies" />
               <div class="btn-movies m-1" v-b-modal="`modal-moviesList`">
-                <b-icon
-                  icon="plus-square"
-                  aria-hidden="true"
-                  class="h4"
-                ></b-icon>
+                <b-icon icon="plus-square" aria-hidden="true" class="h4"></b-icon>
               </div>
             </div>
           </form>
-          <button
-            class="btn btn-success btn-edit"
-            v-b-modal="`modal-addCinemaConfirm`"
-          >
-            Add
-          </button>
+          <button class="btn btn-success btn-edit" v-b-modal="`modal-addCinemaConfirm`">Add</button>
         </div>
       </div>
     </div>
@@ -120,6 +106,11 @@ export default {
         province: ""
       }
     };
+  },
+  beforeCreate() {
+    if (!this.$store.state.login.token) {
+      this.$router.replace("/");
+    }
   },
   created() {
     this.$store.dispatch("fetchListMoviesByStatus", "showing");

@@ -29,12 +29,7 @@
               </td>
               <td>{{ cinema.province }}</td>
               <td>
-                <button
-                  class="btn btn-danger ml-2"
-                  v-b-modal="`modal-deleteCinemaConfirm`"
-                >
-                  Delete
-                </button>
+                <button class="btn btn-danger ml-2" v-b-modal="`modal-deleteCinemaConfirm`">Delete</button>
               </td>
             </tr>
           </tbody>
@@ -52,6 +47,11 @@ export default {
   components: {
     Loader,
     NavbarAdmin
+  },
+  beforeCreate() {
+    if (!this.$store.state.login.token) {
+      this.$router.replace("/");
+    }
   },
   created() {
     this.$store.dispatch("fetchCinemaById", this.$route.params.id);
