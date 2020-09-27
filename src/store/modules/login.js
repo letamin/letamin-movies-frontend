@@ -40,6 +40,7 @@ const actions = {
     commit("clearAuthData");
     localStorage.removeItem("token");
     localStorage.removeItem("exp");
+    router.replace("/login");
   },
 
   setLogoutTimer({ dispatch }, exp) {
