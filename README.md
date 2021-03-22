@@ -1,4 +1,6 @@
-# letamin-movies
+# letamin-movies : https://letamin-movies-frontend.herokuapp.com/
+This is Heroku so it's a little bit slow, please be patient.
+
 
 ## Project setup
 ```
