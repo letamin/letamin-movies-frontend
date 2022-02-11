@@ -1,4 +1,5 @@
-# letamin-movies : https://letamin-movies-frontend.herokuapp.com/
+Learning to make website using Vuejs!
+Here is the link: https://letamin-movies-frontend.herokuapp.com/
 This is Heroku so it's a little bit slow, please be patient.
 
 
